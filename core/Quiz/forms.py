@@ -11,5 +11,5 @@ class QuizForm(forms.ModelForm):
 class QuestionForm(forms.ModelForm):
     class Meta:
         model = Question
-        fields = ('content', 'quiz')
+        fields = ('content', 'quiz','img')
         

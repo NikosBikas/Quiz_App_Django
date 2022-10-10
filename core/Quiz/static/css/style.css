@@ -1,0 +1,97 @@
+.attempt {
+    --gradient: linear-gradient(to left top, #c724dd 10%, #aaaaaa 90%) !important;
+  }
+
+  body {
+    background: #111;
+  }
+
+  .card {
+    background: #222;
+    border: 1px solid #7a24dd;
+    color: rgba(250, 250, 250, 0.8);
+    margin-bottom: 3rem;
+  }
+
+  #btn {
+    border: 5px solid;
+    border-image-slice: 1;
+    background: var(--gradient) !important;
+    border-image-source: var(--gradient) !important;
+    text-decoration: none;
+    position: relative;
+    left: 80px;
+  }
+
+  .head1 {
+    color: #FBAD30;
+    font-size: 2rem;
+    font-weight: bold;
+    height: 50px;
+  }
+
+  .head2 {
+    color: #EF4926;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  #btn:hover,
+  #btn:focus {
+    background: var(--gradient) !important;
+    border: 5px solid #fff !important;
+    box-shadow: #222 1px 0 10px;
+    text-decoration: underline;
+  }
+
+  .logo {
+    position: relative;
+    bottom: 2rem;
+  }
+
+  .container-fluid {
+    height: 60px;
+  }
+
+
+  .timer{
+    float: right;
+}
+.total{
+    margin-bottom: 5px;
+}
+    input[type='radio']:checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #16b138;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+    .logo {
+        position: relative;
+        bottom: 2rem;
+    }
+
+    .container-fluid {
+        height: 60px;
+    }
+
+    .head1 {
+        color: #FBAD30;
+        font-size: 2rem;
+        font-weight: bold;
+        height: 50px;
+    }
+
+    .head2 {
+        color: #EF4926;
+        font-size: 2rem;
+        font-weight: bold;
+    }

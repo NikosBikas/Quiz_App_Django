@@ -16,6 +16,7 @@ class Quiz(models.Model):
     
 class Question(models.Model):
     content = models.CharField(max_length=200)
+    img = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100, blank=True)
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     
     def __str__(self):

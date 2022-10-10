@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import QuizForm, QuestionForm
 from django.forms import inlineformset_factory
+from django.shortcuts import get_object_or_404
+
 import random
 
 def index(request):
@@ -39,7 +41,7 @@ def quiz_data_view(request, myid):
         for a in q.get_answers():
             answers.append(a.content)
         questions.append({str(q): answers})
-    r_questions = random.sample(questions, 3)
+    r_questions = random.sample(questions, 15)
     return JsonResponse({
         'data': r_questions,
         'time': quiz.time,
@@ -52,26 +54,21 @@ def save_quiz_view(request, myid):
         questions = []
         data = request.POST
         data_ = dict(data.lists())
-
+        print(data_)
         data_.pop('csrfmiddlewaretoken')
-
         for k in data_.keys():
             print('key: ', k)
             question = Question.objects.get(content=k)
+            print(question)
             questions.append(question)
-
-
-
+            print(question)
         user = request.user
         quiz = Quiz.objects.get(id=myid)
-
         score = 0
         marks = []
         correct_answer = None
-
         for q in questions:
             a_selected = request.POST.get(q.content)
-
             if a_selected != "":
                 question_answers = Answer.objects.filter(question=q)
                 for a in question_answers:
@@ -82,13 +79,10 @@ def save_quiz_view(request, myid):
                     else:
                         if a.correct:
                             correct_answer = a.content
-
                 marks.append({str(q): {'correct_answer': correct_answer, 'answered': a_selected}})
             else:
                 marks.append({str(q): 'not answered'})
-     
-        Marks_Of_User.objects.create(quiz=quiz, user=user, score=score)
-        
+        Marks_Of_User.objects.create(quiz=quiz, user=user, score=score)    
         return JsonResponse({'passed': True, 'score': score, 'marks': marks})
     
 

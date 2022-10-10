@@ -20,7 +20,8 @@
         </div>
     </nav>
     <div class="container">
-        <h1 class="text-danger mt-3">{{quiz.name}} <span class="badge bg-dark timer" id="hide-time">Seconds Left : <span
+        <br>
+        <h1 class="text-danger mt-3" id="quiz-name">{{quiz.name}} <span class="badge bg-dark timer" id="hide-time">Seconds Left : <span
                     id="time-left">{{quiz.time}}</span></span> </h1>
         <hr class="nice" style="display: none;">
         <div>
@@ -177,8 +178,10 @@ quizForm.addEventListener('submit', e=>{
         });
         $("#button1").click(function () {
             $(this).hide();
+            $("#quiz-form").hide();
             $(".total").show();
             $("#hide-time").hide();
+            $("#quiz-name").hide();
         });
     });
 </script>
